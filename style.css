@@ -9,23 +9,31 @@ body {
   background: linear-gradient(#5372f0 50%, #000000 50%);
 }
 .container {
-  position: relative;
+  position: absolute;;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  height: 90vw;
   width: 90vw;
   max-width: 37.5em;
+  max-height: 40em;
   background-color: #ffffff;
-  padding: 1.8em;
+  padding: 1em;
   border-radius: 0.6em;
   box-shadow: 0 1em 3em rgba(2, 9, 38, 0.25);
-  margin-top: 5em;
+  margin-top: 1em;
+  overflow: hidden;
 }
 .search-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 1em;
   margin-bottom: 1.2em;
+  position: sticky; /* Fixăm poziția */
+  top: 0; /* Fixăm bara de căutare și butoanele în partea de sus a paginii */
+  background-color: #ffffff; /* Adăugăm un background pentru a le face vizibile */
+  z-index: 1; /* Asigurăm că sunt întotdeauna deasupra celorlalte elemente */
+  padding: 1.5em; /* Adăugăm */
 }
 .search-container input {
   font-size: 1em;
@@ -50,6 +58,9 @@ body {
 #result {
   color: #575a7b;
   line-height: 2em;
+  overflow-y: auto; /* Adăugăm scrollbar pentru derularea verticală */
+  max-height: 70vh; /* Setăm înălțimea maximă a containerului de rezultate */
+  padding: 1.5em;
 }
 #result img {
   display: block;
@@ -113,25 +124,29 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
   justify-content: center;
-  margin-top: 200em;
+  margin-top: 2em;
 }
 
 /* Stiluri pentru fiecare element de cocktail */
 .drink-item {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .drink-item img {
   max-width: 100%;
   height: auto;
   max-height: 5em;
-  margin: auto;
+  margin-bottom: 0.5em;
 }
 
 .drink-item p {
   font-size: 16px;
   margin-top: 10px;
   color: #1f194c;
+  margin-top: 0;
 }
 
 .msg {
